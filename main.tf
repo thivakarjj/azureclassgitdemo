@@ -47,14 +47,6 @@ resource "azurerm_api_management" "apim" {
   sku_name            = var.apimSku
 
 }
-# Create Application Insights
-resource "azurerm_application_insights" "ai" {
-  name                = local.appInsightsName
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  application_type    = var.application_type
-
-}
 # Create Logger
 resource "azurerm_api_management_logger" "apimLogger" {
   name                = "${local.apimName}-logger"
