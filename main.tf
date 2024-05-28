@@ -5,13 +5,6 @@ locals {
   appInsightsName   = "${var.prefix}-${var.resourceFunction}-appinsights-${var.environment}-${var.region}"
 }
 
-# create resource group
-resource "azurerm_resource_group" "rg" {
-  name     = local.resourceGroupName
-  location = var.location
-}
-
-
 #Create storage account container for apim
 resource "azurerm_storage_container" "saContainerApim" {
   name                  = var.apim-files
