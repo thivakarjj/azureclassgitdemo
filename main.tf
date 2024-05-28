@@ -45,9 +45,7 @@ resource "azurerm_api_management" "apim" {
   publisher_name      = var.apimPublisherName
   publisher_email     = var.apimPublisherEmail
   sku_name            = var.apimSku
-  identity {
-    type = "SystemAssigned"
-  }
+
 }
 # Create Application Insights
 resource "azurerm_application_insights" "ai" {
