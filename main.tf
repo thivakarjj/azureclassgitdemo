@@ -39,7 +39,7 @@ resource "azurerm_storage_container" "saContainerApi" {
 # Create Azure API management resource
 
 resource "azurerm_api_management" "apim" {
-  name                = local.apimName
+  name                = local.manoj
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   publisher_name      = var.apimPublisherName
