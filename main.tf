@@ -11,16 +11,6 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
-# Create Storage Account
-resource "azurerm_storage_account" "sa" {
-  name                      = local.storageAccountName
-  resource_group_name       = azurerm_resource_group.rg.name
-  location                  = azurerm_resource_group.rg.location
-  account_replication_type = var.replication
-  account_tier             = var.account_tier
-  account_kind              = var.account_kind
-  enable_https_traffic_only = true
-}
 
 #Create storage account container for apim
 resource "azurerm_storage_container" "saContainerApim" {
@@ -29,12 +19,7 @@ resource "azurerm_storage_container" "saContainerApim" {
   container_access_type = var.container_access_type
 }
 
-# Create storage account container for api
-resource "azurerm_storage_container" "saContainerApi" {
-  name                  = var.api-file
-  storage_account_name  = azurerm_storage_account.sa.name
-  container_access_type = var.container_access_type
-}
+
 
 # Create Azure API management resource
 
